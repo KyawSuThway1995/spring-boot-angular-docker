@@ -1,0 +1,11 @@
+<div class="row justify-content-between">
+    <div class="card" width="300" *ngFor="let p of products">
+        <img class="card-img w-100" height="200" [src]="p.photos[0]" alt="">
+        <div class="card-body">
+            <h3 class="card-titile">{{p.name}}</h3>
+            <p class="card-text">{{p.description}}</p>
+            <p><strong>Price : </strong> {{p.price}} MMK</p>
+            <a class="d-block btn btn-link btn-primary text-white" (click)="addToCard(p)">Add To Cart</a>
+        </div>
+    </div>
+</div>

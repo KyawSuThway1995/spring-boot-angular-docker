@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-md-7">
+        <h3>Cart Item List</h3>
+        <hr>
+        <div class="media mb-2 shadow border rounded p-2" *ngFor="let order of orders; let i=index;">
+            <a class="d-flex align-self-bottom" href="#">
+                  <img [src]="order.product.photos[0]" alt="" width="150" height="100" style="object-fit: fill;">
+            </a>
+            <div class="media-body ml-2">
+                <h5>{{order.product.name}}</h5>
+                <p><strong>Price : </strong> {{order.product.price}}</p>
+                <p class="rounded rounded-pill text-center" style="width: 100px; padding: 1px; border: 1px #000 solid;">
+                    <span (click)="shoppingCart.addToCart(order.product)"><i class="fa fa-plus"></i></span> &nbsp;&nbsp;
+                    {{order.quantity}} 
+                    &nbsp;&nbsp;<span (click)="shoppingCart.subFromCart(order.product)"><i class="fa fa-minus"></i></span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <h3>Order Summary</h3>
+        <hr>
+        <table class="table table-bordered">
+            <tr>
+                <td class="font-weight-bold">Sub Total</td>
+                <td class="text-right">{{shoppingCart.subTotal}} MMK</td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">Tax</td>
+                <td class="text-right">{{shoppingCart.tax}} MMK</td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">Total</td>
+                <td class="text-right">{{shoppingCart.total}} MMK</td>
+            </tr>
+        </table>
+        <button class="btn btn-block btn-outline-primary" (click)="checkOut()">Check Out</button>
+    </div>
+</div>

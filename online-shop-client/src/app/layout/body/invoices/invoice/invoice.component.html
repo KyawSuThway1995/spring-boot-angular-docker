@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="invoice">
+        <h5 class="text-center">OShop</h5>
+        <hr>
+        <p><strong>Invoice ID   : </strong> {{invoice.id}}</p>
+        <p><strong>Invoice Date : </strong> {{invoice.invoiceDate | date:'short'}}</p>
+
+        <table class="table table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Product Name</th>
+                    <th>Unit Price</th>
+                    <th>Quantity</th>
+                    <th>Total Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let order of invoice.orders">
+                    <td>{{order.product.name}}</td>
+                    <td class="text-right">{{order.product.price}}</td>
+                    <td class="text-right">{{order.quantity}}</td>
+                    <td class="text-right">{{order.quantity * order.product.price}}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="text-right">SubTotal</td>
+                    <td class="text-right">{{invoice.subTotal}}</td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="text-right">Tax</td>
+                    <td class="text-right">{{invoice.tax}}</td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="text-right">Total</td>
+                    <td class="text-right">{{invoice.total}}</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

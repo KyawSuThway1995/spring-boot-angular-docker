@@ -1,0 +1,15 @@
+.invoice-table{
+    width: 800px;
+}
+
+thead tr th{
+    text-align: center;
+}
+
+tbody tr{
+    cursor: pointer;
+}
+
+tbody tr td{
+    text-align: right;
+}

@@ -1,0 +1,9 @@
+.invoice{
+    width: 600px;
+    padding: 10px;
+    border: 1px #000 solid;
+}
+
+thead tr th{
+    text-align: center;
+}
