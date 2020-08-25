@@ -38,7 +38,7 @@ export class ShoppingCart{
     }
 
     removeOrder(order: Order){
-        let index = this._orders.findIndex(od => od.id == order.id);
+        let index = this._orders.findIndex(od => od.product.id == order.product.id);
         this._orders.splice(index, 1);
     }
 
