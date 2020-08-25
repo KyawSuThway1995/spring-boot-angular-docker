@@ -24,15 +24,18 @@ export class CartComponent implements OnInit {
 
   checkOut(){
     let invoice = new Invoice();
-    invoice.id = ++ InvoiceService.id;
-    invoice.invoiceDate = new Date();
+    invoice.invoiceDate = new Date().toISOString().substring(0, 19);
     invoice.orders = this.shoppingCart.orders
     invoice.subTotal = this.shoppingCart.subTotal;
     invoice.tax  =this.shoppingCart.tax;
     invoice.total = this.shoppingCart.total;
 
-    this.invoiceService.save(invoice);
-    this.shoppingCart.clear();
-    this.router.navigate(['/invoices', invoice.id])
+    this.invoiceService.save(invoice).subscribe(
+      inv => {
+        this.shoppingCart.clear();
+        this.router.navigate(['/invoices', inv.id])
+      }
+    );
+    
   }
 }

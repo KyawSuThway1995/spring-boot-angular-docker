@@ -19,21 +19,21 @@
                     <td>{{order.product.name}}</td>
                     <td class="text-right">{{order.product.price}}</td>
                     <td class="text-right">{{order.quantity}}</td>
-                    <td class="text-right">{{order.quantity * order.product.price}}</td>
+                    <td class="text-right">{{order.quantity * order.product.price}} MMK</td>
                 </tr>
             </tbody>
             <tfoot>
                 <tr>
                     <td colspan="3" class="text-right">SubTotal</td>
-                    <td class="text-right">{{invoice.subTotal}}</td>
+                    <td class="text-right">{{invoice.subTotal}} MMK</td>
                 </tr>
                 <tr>
                     <td colspan="3" class="text-right">Tax</td>
-                    <td class="text-right">{{invoice.tax}}</td>
+                    <td class="text-right">{{invoice.tax}} MMK</td>
                 </tr>
                 <tr>
                     <td colspan="3" class="text-right">Total</td>
-                    <td class="text-right">{{invoice.total}}</td>
+                    <td class="text-right">{{invoice.total}} MMK</td>
                 </tr>
             </tfoot>
         </table>

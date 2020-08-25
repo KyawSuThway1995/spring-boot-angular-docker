@@ -17,11 +17,15 @@ export class InvoiceComponent implements OnInit {
   constructor(private invoiceService: InvoiceService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe(
-      (params: Params) => {
-        let id = params['id'];
-        this.invoice = this.invoiceService.findById(id)
-      }
+    this.route.params.pipe(
+      switchMap(
+        (params: Params) => {
+          let id = params['id'];
+          return this.invoiceService.findById(+id)
+        }
+      )
+    ).subscribe(
+      invoice => this.invoice = invoice
     )
   }
 

@@ -15,7 +15,9 @@ export class BodyComponent implements OnInit {
   constructor(private productService: ProductService, private shoppingCart: ShoppingCart) { }
 
   ngOnInit(): void {
-    this.products = this.productService.products
+    this.productService.findAll().subscribe(
+      products => this.products = products
+    )
   }
 
   addToCard(product: Product){

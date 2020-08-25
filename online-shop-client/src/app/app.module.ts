@@ -9,6 +9,7 @@ import { BodyComponent } from './layout/body/body.component';
 import { CartComponent } from './layout/body/cart/cart.component';
 import { InvoicesComponent } from './layout/body/invoices/invoices.component';
 import { InvoiceComponent } from './layout/body/invoices/invoice/invoice.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { InvoiceComponent } from './layout/body/invoices/invoice/invoice.compone
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],

@@ -4,7 +4,7 @@
         <hr>
         <div class="media mb-2 shadow border rounded p-2" *ngFor="let order of orders; let i=index;">
             <a class="d-flex align-self-bottom" href="#">
-                  <img [src]="order.product.photos[0]" alt="" width="150" height="100" style="object-fit: fill;">
+                  <img [src]="order.product.photo" alt="" width="150" height="100" style="object-fit: fill;">
             </a>
             <div class="media-body ml-2">
                 <h5>{{order.product.name}}</h5>
@@ -17,10 +17,10 @@
             </div>
         </div>
     </div>
-    <div class="col-md-5">
+    <div class="col-md-5" *ngIf="shoppingCart.cartSize">
         <h3>Order Summary</h3>
         <hr>
-        <table class="table table-bordered">
+        <table class="table table-borderless">
             <tr>
                 <td class="font-weight-bold">Sub Total</td>
                 <td class="text-right">{{shoppingCart.subTotal}} MMK</td>

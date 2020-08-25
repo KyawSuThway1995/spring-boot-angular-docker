@@ -1,3 +1,5 @@
+import { environment } from './../../environments/environment';
+import { HttpClient } from '@angular/common/http';
 import { Invoice } from './../dto/Invoice';
 import { Injectable } from "@angular/core";
 
@@ -5,19 +7,21 @@ import { Injectable } from "@angular/core";
     providedIn: 'root'
 })
 export class InvoiceService{
-    static id: number = 0;
+    constructor(private http: HttpClient){}
 
     private _invoices: Invoice[] = []
 
+
+
     save(invoice: Invoice){
-        this._invoices.push(invoice)
+        return this.http.post<Invoice>(`${environment.baseApi}/invoices`, invoice)
     }
 
-    get invoices(){
-        return [...this._invoices];
+    findAll(){
+        return this.http.get<Invoice[]>(`${environment.baseApi}/invoices`)
     }
 
     findById(id: number){
-        return this._invoices.find(inv => inv.id == id)
+        return this.http.get<Invoice>(`${environment.baseApi}/invoices/${id}`)
     }
 }
