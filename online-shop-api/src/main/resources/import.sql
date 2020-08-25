@@ -1,0 +1,1 @@
+insert into product(name, photo, description, price) values('Ice-Coffee', '../../../assets/resources/images/ice-coffee.jpg', 'Cool', 2000), ('Orange Juice', '../../../assets/resources/images/orange-juice.jpg', 'Good',2500), ('Ice-cream', '../../../assets/resources/images/ice-cream.jpg', 'Nice',3000);
