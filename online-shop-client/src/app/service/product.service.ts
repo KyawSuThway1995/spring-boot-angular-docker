@@ -1,4 +1,4 @@
-import { environment } from './../../environments/environment.prod';
+import { environment } from './../../environments/environment';
 import { Product } from './../dto/Product';
 import { Injectable } from "@angular/core";
 
