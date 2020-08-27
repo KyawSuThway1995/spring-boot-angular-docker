@@ -24,7 +24,6 @@ export class CartComponent implements OnInit {
 
   checkOut(){
     let invoice = new Invoice();
-    invoice.invoiceDate = new Date().toISOString().substring(0, 19);
     invoice.orders = this.shoppingCart.orders
     invoice.subTotal = this.shoppingCart.subTotal;
     invoice.tax  =this.shoppingCart.tax;

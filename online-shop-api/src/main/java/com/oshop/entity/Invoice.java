@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import lombok.Data;
 
 @Entity
@@ -22,6 +24,7 @@ public class Invoice implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@CreationTimestamp
 	private LocalDateTime invoiceDate;
 	
 	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
